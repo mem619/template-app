@@ -1,0 +1,32 @@
+<ul class="sidebar p-2"  [class.hide]="getState()">
+    <div class="options">
+      <i
+        class="fa fa-window-close cursor-pointer text-shadow"
+        aria-hidden="true"
+        (click)="toogleState()"
+      ></i>
+    </div>
+    <div class="avatar_container mt-3">
+        <img src="https://www.w3schools.com/howto/img_avatar2.png" >
+        <br>
+        <p>Nombre de usuario</p>
+      </div>
+      <div (click)="toogleState()">
+        <li
+          class="cursor-pointer item-menu mt-5"
+          [routerLink]="['/']"
+        >
+          Pagina Principal
+        </li>
+        <li
+          class="cursor-pointer item-menu"
+          [routerLink]="['/sample']"
+          routerLinkActive="link-active"
+        >
+          Sample
+        </li>
+
+      </div>
+
+  </ul>
+

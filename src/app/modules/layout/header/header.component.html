@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark none-select">
+  <div class="navbar-brand">
+    <i
+      class="fa fa-bars pr-2 cursor-pointer text-shadow"
+      aria-hidden="true"
+      (click)="changeState()"
+    ></i>
+    <img
+      src="https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg"
+      width="30"
+      height="30"
+    />
+    App-Name
+  </div>
+  <div class="form-inline">
+    <i
+      class="fa fa-sign-out cursor-pointer text-shadow"
+      aria-hidden="true"
+      [routerLink]="['/login']"
+    ></i>
+  </div>
+</nav>
+

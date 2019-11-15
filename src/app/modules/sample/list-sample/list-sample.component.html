@@ -1,0 +1,49 @@
+<div class="content p-2">
+  <div class="row justify-content-between">
+    <ngl-select
+      class="col-md-2 col-sm-12"
+      label="Elementos por pagina:"
+      fieldLevelHelpTooltip="Seleccione la cantidad de elementos que desee visualizar."
+    >
+      <select ngl (change)="changePageSize($event)">
+        <option  *ngFor="let item of sizeItems">{{ item }}</option>
+      </select>
+    </ngl-select>
+    <div class="col-md-2 col-sm-12 ">
+      <button class="btn btn-primary">Agregar</button>
+    </div>
+  </div>
+  <table
+    ngl-datatable
+    [loading]="loading"
+    [data]="users"
+    class="none-select m-2 slds-max-medium-table_stacked-horizontal slds-table_fixed-layout"
+  >
+    <ngl-datatable-column heading="" key="id">
+      <ng-template nglDatatableHeading>
+        ID
+        <ngl-icon iconName="filterList" size="xx-small" [nglPopover]="tip" nglPopoverPlacement="right" nglPopoverSize="small" [(nglPopoverOpen)]="filterOpen.id">
+        </ngl-icon>
+        <ng-template #tip>
+          <input
+            type="text"
+            placeholder="Filtrado Libre"
+            (keydown.enter)="filter('id',$event)"
+            [value]="filters.id || ''"
+          />
+          <button (click)="clear('id',$event)">Limpiar</button>
+        </ng-template>
+      </ng-template>
+      <ng-template nglDatatableCell let-value>
+          {{ value | number }}
+      </ng-template>
+    </ngl-datatable-column>
+    <ngl-datatable-column heading="User Name" key="username"></ngl-datatable-column>
+    <ngl-datatable-column heading="Nombre" key="name"></ngl-datatable-column>
+    <ngl-datatable-column heading="Correo" key="email"></ngl-datatable-column>
+    <ng-template nglLoadingOverlay>
+      <div class="slds-box slds-box_small slds-theme_shade slds-text-align_center">Loading...</div>
+    </ng-template>
+  </table>
+  <ngl-pagination [(page)]="pageSize" [perPage]="filters._limit" [total]="total"></ngl-pagination>
+</div>

@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  background: white!important;
+}
+
+.wrapper {
+  overflow: hidden;
+  height: auto;
+  min-height: 100%;
+}
+
+.content-wrapper {
+  min-height: calc(100vh - 100px);
+  z-index: 800;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.none-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.text-shadow:hover {
+  text-shadow: -1px -1px 20px rgba(255, 255, 255, 1);
+}
